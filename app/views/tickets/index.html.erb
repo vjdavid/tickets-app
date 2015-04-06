@@ -1,0 +1,25 @@
+<h1>Listing of tickets</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+		<th>Name:</th>
+		<th>Description:</th>
+		<th>Actions</th>
+	</tr>
+	</thead>
+	<tbody>
+	  <% @tickets.each do |ticket| %>
+      <tr>
+				<td><%= ticket.name %></td>
+				<td><%= ticket.description %></td>
+
+				<td><%= link_to "Show", proyect_ticket_path(@proyect, ticket) %></td>
+				<td><%= link_to "Edit", edit_proyect_ticket_path(@proyect, ticket) %></td>
+				<td><%= link_to "Delete", proyect_ticket_path(@proyect, ticket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			<% end %>
+	</tbody>
+</table>
+
+<%= link_to "New Ticket", new_proyect_ticket_path(@proyect) %>

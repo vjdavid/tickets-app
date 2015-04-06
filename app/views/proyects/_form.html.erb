@@ -1,0 +1,9 @@
+<%= form_for @proyect do |f| %>
+	<p><%= f.text_field :name %></p>
+	<p><%= f.text_area :description %></p>
+
+	<%= f.submit "Enviar" %>
+<% end %>
+
+<%= link_to "Cancel", proyects_path %>
+

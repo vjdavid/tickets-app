@@ -1,0 +1,13 @@
+<h1>Show Proyect</h1>
+
+<% if flash[:notice] %>
+	<div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+<% end %>
+
+<p><%= @proyect.name %></p>
+<p><%= @proyect.description %></p>
+
+<%= link_to "Back", proyects_path %>
+
+<%= link_to "Show All Tickets", proyect_tickets_path(@proyect) %>
+
