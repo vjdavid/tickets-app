@@ -9,6 +9,7 @@
 
 /config/database.yml
 /keeps
+*swp
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
