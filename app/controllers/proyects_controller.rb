@@ -3,6 +3,7 @@ class ProyectsController < ApplicationController
 
 	def index
 		@proyects = Proyect.all
+		respond_with @proyects
 	end
 
 	def new
