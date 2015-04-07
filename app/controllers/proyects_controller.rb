@@ -8,8 +8,11 @@ class ProyectsController < ApplicationController
 
   def create 
 	  @proyect = Proyect.new(proyect_params)
-		@proyect.save
-		respond_with @proyect
+		if @proyect.save
+		 respond_with @proyect, status: :created
+		else
+			respond_with @proyect.errors, status: 422 
+		end
 	end
 
 	def show
@@ -23,6 +26,7 @@ class ProyectsController < ApplicationController
 
 	def destroy
 		@proyect.destroy
+		head :no_content
 	end
 
 	private	
