@@ -11,7 +11,7 @@ class TicketsController < ApplicationController
 		@ticket = @proyect.tickets.create(params_ticket)
 
 		if @ticket.save
-			respond_with @ticket, status: :created
+			respond_with @ticket
 		else
 			respond_with @ticket.errors, status: 422
 		end

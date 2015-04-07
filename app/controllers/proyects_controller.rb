@@ -10,7 +10,7 @@ class ProyectsController < ApplicationController
 	  @proyect = Proyect.new(proyect_params)
 
 		if @proyect.save
-		 respond_with @proyect, status: :created
+		 respond_with @proyect
 		else
 			respond_with @proyect.errors, status: 422 
 		end
