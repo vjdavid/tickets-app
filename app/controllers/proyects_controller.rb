@@ -8,6 +8,7 @@ class ProyectsController < ApplicationController
 
   def create 
 	  @proyect = Proyect.new(proyect_params)
+
 		if @proyect.save
 		 respond_with @proyect, status: :created
 		else
@@ -21,7 +22,6 @@ class ProyectsController < ApplicationController
 
 	def update
 	  @proyect.update(proyect_params)
-		respond_with @proyect
 	end
 
 	def destroy

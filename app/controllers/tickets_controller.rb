@@ -9,7 +9,12 @@ class TicketsController < ApplicationController
 
 	def create
 		@ticket = @proyect.tickets.create(params_ticket)
-		@ticket.save
+
+		if @ticket.save
+			respond_with @ticket, status: :created
+		else
+			respond_with @ticket.errors, status: 422
+		end
 	end
 
 	def show
