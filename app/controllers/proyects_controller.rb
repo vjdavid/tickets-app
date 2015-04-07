@@ -3,25 +3,29 @@ class ProyectsController < ApplicationController
 
   def index
 	  @proyects = Proyect.all
-		respond_with @proyects
+		render json: @proyects
 	end
 
   def create 
 	  @proyect = Proyect.new(proyect_params)
 
 		if @proyect.save
-		 respond_with @proyect
+		 render json: @proyects
 		else
-			respond_with @proyect.errors, status: 422 
+			render json: @proyect.errors, status: 422 
 		end
 	end
 
 	def show
-    respond_with @proyect
+    render json: @proyect
 	end
 
 	def update
-	  @proyect.update(proyect_params)
+	  if @proyect.update(proyect_params)
+			render json: @proyect
+		else
+			render json: @proyect.errors, status: 422 
+		end
 	end
 
 	def destroy
