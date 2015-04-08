@@ -34,6 +34,10 @@ class TicketsController < ApplicationController
 		head :no_content
 	end
 
+  rescue_from ActiveRecord::RecordNotFound do
+	  render json: { error: "record not found", status: 404 }, status: 404
+  end
+
 	private
 
 	def find_proyect 
