@@ -1,4 +1,4 @@
-require 'rspec_helper'
+require 'spec_helper'
 
 describe Ticket do
   it "is valid with a name"
