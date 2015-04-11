@@ -1,6 +1,3 @@
-require 'spec_helper'
-
-describe Ticket do
-  it "is valid with a name"
-	it "is valid with a description"
+RSpec.describe Ticket do
+	it { should validate_presence_of :name } 
 end
