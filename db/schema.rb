@@ -16,20 +16,6 @@ ActiveRecord::Schema.define(version: 20150331163556) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "descriptions", force: true do |t|
-    t.string   "description"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "homes", force: true do |t|
-    t.string   "index"
-    t.string   "ya"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "proyects", force: true do |t|
     t.string   "name"
     t.string   "description"
