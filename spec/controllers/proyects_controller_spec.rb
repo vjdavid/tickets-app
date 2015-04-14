@@ -1,5 +1,6 @@
+require "rails_helper"
 
-RSpec.describe ProyectsController do
+RSpec.describe ProyectsController, :type => :controller do
 
   describe "GET #index" do 
 	 it "display all proyects from @proyects" do
