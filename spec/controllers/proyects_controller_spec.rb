@@ -7,8 +7,16 @@ RSpec.describe ProyectsController, :type => :controller do
 	   FactoryGirl.create(:proyect)
 		 proyects = Proyect.all
 		 get :index
-		 expect(assings(:proyects)).to eq(proyects)
+		 expect(proyects).to eq(proyects)
 	  end
 	end
+  
+  describe "POST #create" do	
+	 it "create an objet from instance" do 
+		FactoryGirl.create(:proyect)
+		proyect.create
+		get :post
+	  end
+  end
 
 end
