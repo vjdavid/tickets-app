@@ -3,7 +3,7 @@ require "pry"
 
 RSpec.describe ProyectsController, :type => :controller do
 
-  describe "GET #index" do 
+  describe "GET #index" do
    it "display all proyects from @proyects" do
      FactoryGirl.create(:proyect)
      proyects = Proyect.all
@@ -12,8 +12,8 @@ RSpec.describe ProyectsController, :type => :controller do
     end
   end
 
-  describe "POST #create" do	
-    it "create an objet from instance" do 
+  describe "POST #create" do
+    it "create an objet from instance" do
       proyect = FactoryGirl.attributes_for(:proyect)
       post(:create, { proyect: proyect })
 
@@ -22,8 +22,13 @@ RSpec.describe ProyectsController, :type => :controller do
     end
   end
 
-
-  describe "DELETE #describe" do
+  describe "DELETE #destroy" do
+    it "delete a objet from" do
+      proyect = FactoryGirl.create(:proyect)
+      expect {
+        delete :destroy, :id => proyect.id
+      }.to change(Proyect, :count ).by(-1)
+    end
   end
 
 end
