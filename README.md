@@ -1,5 +1,5 @@
-## Tickets Application
-- - -
+# Tickets Application
+[![Test Coverage](https://codeclimate.com/github/vjdavid/tickets-app/badges/coverage.svg)](https://codeclimate.com/github/vjdavid/tickets-app)
 [![Code Climate](https://codeclimate.com/github/vjdavid/tickets-app/badges/gpa.svg)](https://codeclimate.com/github/vjdavid/tickets-app)
 [![Dependency Status](https://gemnasium.com/vjdavid/tickets-app.svg)](https://gemnasium.com/vjdavid/tickets-app)
 
