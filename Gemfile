@@ -15,6 +15,7 @@ group :development, :test do
 	gem 'factory_girl_rails', '~> 4.5.0'
 	gem 'guard-rspec', '~> 4.5.0'
 	gem 'spring'
+	gem "pry"
 end
 
 group :test do
@@ -25,3 +26,4 @@ group :test do
 	gem 'shoulda-matchers'
 	gem "codeclimate-test-reporter", require: nil
 end
+
