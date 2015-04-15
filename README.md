@@ -1,4 +1,6 @@
 ## Tickets Application
+- - -
+[![Code Climate](https://codeclimate.com/github/vjdavid/tickets-app/badges/gpa.svg)](https://codeclimate.com/github/vjdavid/tickets-app)
 
 This is an application for practice Ruby on Rails :)
 
