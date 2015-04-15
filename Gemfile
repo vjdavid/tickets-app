@@ -23,4 +23,5 @@ group :test do
 	gem 'database_cleaner', '~> 1.4.1'
 	gem 'launchy', '~> 2.4.3'
 	gem 'shoulda-matchers'
+	gem "codeclimate-test-reporter", require: nil
 end
