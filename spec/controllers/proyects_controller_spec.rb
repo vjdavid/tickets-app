@@ -16,7 +16,6 @@ RSpec.describe ProyectsController, :type => :controller do
     it "create an object from instance" do
       proyect = FactoryGirl.attributes_for(:proyect)
       post(:create, { proyect: proyect })
-
       body = JSON.parse(response.body)
       body['name'].should eq proyect[:name]
     end
