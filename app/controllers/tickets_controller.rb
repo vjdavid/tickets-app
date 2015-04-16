@@ -48,6 +48,6 @@ class TicketsController < ApplicationController
   end
 
   def params_ticket
-    params.require(:ticket).permit(:description, :name)
+    params.permit(:description, :name)
   end
 end
