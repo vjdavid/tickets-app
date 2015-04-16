@@ -43,7 +43,8 @@ RSpec.describe ProyectsController, :type => :controller do
   describe "GET #show" do
     it "show a object from an record" do
     proyect = FactoryGirl.create(:proyect)
-    get :show
+      get :show, id: proyect
+      expect(assigns(:proyect)).to eq proyect
     end
   end
 
