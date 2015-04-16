@@ -13,7 +13,7 @@ RSpec.describe ProyectsController, :type => :controller do
   end
 
   describe "POST #create" do
-    it "create an objet from instance" do
+    it "create an object from instance" do
       proyect = FactoryGirl.attributes_for(:proyect)
       post(:create, { proyect: proyect })
 
@@ -23,11 +23,27 @@ RSpec.describe ProyectsController, :type => :controller do
   end
 
   describe "DELETE #destroy" do
-    it "delete a objet from" do
+    it "delete a object" do
       proyect = FactoryGirl.create(:proyect)
       expect {
         delete :destroy, :id => proyect.id
       }.to change(Proyect, :count ).by(-1)
+    end
+  end
+
+  describe "PUT #update" do
+    it "update object" do
+      proyect = FactoryGirl.create(:proyect)
+      put :update, id: proyect, proyect: FactoryGirl.attributes_for(:proyect, name: "Holis")
+      proyect.reload
+      expect(proyect.name).to eq('Holis')
+    end
+  end
+
+  describe "GET #show" do
+    it "show a object from an record" do
+    proyect = FactoryGirl.create(:proyect)
+    get :show
     end
   end
 
