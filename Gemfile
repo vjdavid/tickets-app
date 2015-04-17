@@ -11,10 +11,10 @@ gem 'jbuilder', '~> 2.2.13'
 gem 'responders', '~> 2.1.0'
 
 group :doc do
-	gem 'sdoc', '~> 0.4.0'
+  gem 'sdoc', '~> 0.4.0'
 end
 
-group :development do 
-	gem 'spring'
+group :development do
+  gem 'spring', '~> 1.3.4'
 end
 
