@@ -3,32 +3,54 @@ class ProyectsController < ApplicationController
 
   def index
     @proyects = Proyect.all
-    respond_with @proyects
+    render json: @proyects
   end
 
   def create
     @proyect = Proyect.new(proyect_params)
     @proyect.save
 
-    respond_with @proyect
+    render json: @proyect
   end
 
   def show
-    respond_with @proyect
+    render json: @proyect
   end
 
   def update
     @proyect.update(proyect_params)
-    respond_with @proyect
+
+    if @proyect.save
+     render json: @proyect
+    else
+     render json: @proyect.errors, status: 422
+    end
+  end
+
+  def show
+    render json: @proyect
+  end
+
+  def update
+    if @proyect.update(proyect_params)
+     render json: @proyect
+    else
+      render json: @proyect.errors, status: 422
+    end
   end
 
   def destroy
     @proyect.destroy
+    head :no_content
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render json: {error: "record not found", status: 404}, status: 404
   end
 
   private
   def find_proyect
-    @proyect = Proyect.find(params[:id])
+   @proyect = Proyect.find(params[:id])
   end
 
   def proyect_params

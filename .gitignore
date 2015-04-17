@@ -10,7 +10,7 @@
 /config/database.yml
 /keeps
 *swp
-
+Gemfile.lock
 #Ignore coverage codeclimate
 /coverage
 

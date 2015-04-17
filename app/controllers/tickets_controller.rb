@@ -4,24 +4,49 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = @proyect.tickets
-    respond_with @tickets
+    render json: @tickets
   end
 
   def create
     @ticket = @proyect.tickets.create(params_ticket)
     @ticket.save
+
+    render json: @ticket
   end
 
   def show
-    respond_with @ticket
+    render json: @ticket
   end
 
   def update
     @ticket.update(params_ticket)
+
+    if @ticket.save
+      render json: @ticket, status: 201
+    else
+      render json: @ticket.errors, status: 400
+    end
+  end
+
+  def show
+    render json: @ticket
+  end
+
+  def update
+    if @ticket.update(params_ticket)
+      render json: @ticket
+    else
+      render json: @ticket.errors, status: 400 
+    end
   end
 
   def destroy
     @ticket.destroy
+    head :no_content
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render json: { error: "record not found", status: 404 }, status: 404
   end
 
   private
@@ -34,7 +59,6 @@ class TicketsController < ApplicationController
   end
 
   def params_ticket
-    params.require(:ticket).permit(:description, :name)
+    params.permit(:description, :name)
   end
-
 end
