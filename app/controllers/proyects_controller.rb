@@ -1,37 +1,38 @@
 class ProyectsController < ApplicationController
-	before_action :find_proyect, except: [:index, :create]
+  before_action :find_proyect, except: [:index, :create]
 
   def index
-	  @proyects = Proyect.all
-		respond_with @proyects
-	end
+    @proyects = Proyect.all
+    respond_with @proyects
+  end
 
-  def create 
-	  @proyect = Proyect.new(proyect_params)
-		@proyect.save
-		respond_with @proyect
-	end
+  def create
+    @proyect = Proyect.new(proyect_params)
+    @proyect.save
 
-	def show
     respond_with @proyect
-	end
+  end
 
-	def update
-	  @proyect.update(proyect_params)
-		respond_with @proyect
-	end
+  def show
+    respond_with @proyect
+  end
 
-	def destroy
-		@proyect.destroy
-	end
+  def update
+    @proyect.update(proyect_params)
+    respond_with @proyect
+  end
 
-	private	
-	def find_proyect
-		@proyect = Proyect.find(params[:id])
-	end
+  def destroy
+    @proyect.destroy
+  end
 
-	def proyect_params
-		params.require(:proyect).permit(:name, :description)
-	end	
+  private
+  def find_proyect
+    @proyect = Proyect.find(params[:id])
+  end
+
+  def proyect_params
+    params.require(:proyect).permit(:name, :description)
+  end
 
 end
